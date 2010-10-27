@@ -1,0 +1,36 @@
+Assumes you have git and a basic ruby environment installed.  Directions are for a Debian-based Linux distribution, like Ubuntu.
+
+Download my sample rails 3 oracle application on github:
+http://github.com/mleone/rails3_oracle_sample
+
+Install latest rubygems.
+$ sudo apt-get install rubygems
+
+If you don't have version 1.3.6 or later, run:
+$ gem update --system
+
+Some Linux distros won't let you run the above command.  In that case, run:
+$ sudo gem install rubygems-update
+$ sudo update_rubygems
+
+Install bundler
+$ sudo gem install bundler
+
+Install (1) "Linux Oracle Instant Client" and (2) "Instant Client Package - SDK" from 
+http://www.oracle.com/technetwork/topics/linuxsoft-082809.html (have to register) and unzip the installation archives.
+
+In the SDK package, move the contents of the "sdk" directory into the root directory of the instant client:
+$ mv path_to_sdk_package/sdk path/to/instantclient_11_2/
+
+Update LD_LIBRARY_PATH:
+$ LD_LIBRARY_PATH=/your/personal/path/to/instantclient_11_2:$LD_LIBRARY_PATH
+$ export LD_LIBRARY_PATH
+
+If necessary, make a symlink to libclntsh.so, since the gem looks for that file specificially
+$ cd /home/mleone/software_development/instantclient_11_2
+$ ln -s libclntsh.so.11.1 libclntsh.so
+
+
+Navigate to rails app and install the app's gem bundle
+$ cd path/to/my/rails/app
+$ bundle install
