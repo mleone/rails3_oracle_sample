@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem "rails", "3.0.0"
+gem "rake", ">=0.8.7"
 
 # Prevent loading of ruby-oci8 gem in JRuby
 platforms :ruby do
@@ -8,7 +8,7 @@ platforms :ruby do
 end
 
 # Use either latest oracle_enhanced adapter version from github
-gem 'activerecord-oracle_enhanced-adapter', '~>1.3.0', :git => 'git://github.com/rsim/oracle-enhanced.git'
+gem 'activerecord-oracle_enhanced-adapter', '~>1.3.0', :git => 'http://github.com/rsim/oracle-enhanced.git'
 # Or use released gem version
 # gem "activerecord-oracle_enhanced-adapter", "~>1.3.0"
 
